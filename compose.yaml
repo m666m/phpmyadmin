@@ -1,0 +1,22 @@
+services:
+  phpmyadmin:
+    image: quay.io/linuxserver.io/phpmyadmin:latest
+    restart: unless-stopped
+    ports:
+      - "8010:80"   # <-- 设置主机的访问端口，本地访问 http://localhost:8010
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Shanghai
+      - PMA_ARBITRARY=1
+    volumes:
+      - ./config:/config:z
+    # <----- 访问其它 compose，需要添加到其网络
+    #networks:
+    #  - nextcloud-net
+    #   podman 容器访问宿主机 --network pasta:--map-guest-addr,169.254.1.2 \
+    #   docker 容器访问宿主机 --add-host=host.docker.internal:host-gateway \
+
+  #networks:
+  #  nextcloud-net:
+  #    external:true
