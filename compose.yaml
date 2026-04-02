@@ -12,10 +12,12 @@ services:
     volumes:
       - ./config:/config:z
     # <----- 访问其它 compose，需要添加到其网络
-    #networks:
-    #  - nextcloud-net
     #   podman 容器访问宿主机 --network pasta:--map-guest-addr,169.254.1.2 \
     #   docker 容器访问宿主机 --add-host=host.docker.internal:host-gateway \
+    #extra_hosts:
+    #  - "host.docker.internal:host-gateway"
+    #networks:
+    #  - nextcloud-net
 
   #networks:
   #  nextcloud-net:
