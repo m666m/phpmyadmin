@@ -10,6 +10,8 @@ Usage:
 
     Modify compose.yaml, set your local port, default 8010.
 
+    $ docker compose config
+    
     $ docker compose up -d
 
 Browser open <http://localhost:8010>.
